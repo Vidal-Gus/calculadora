@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Calculadora Basica</h1>
+    <div id="calculadora">
+        <div id="corpo">
+            <div class="valores">
+                <input type="text" name="n1">
+                <input type="button" class="botao" value="<>" onclick="inverse()">
+                <input type="text" name="n2"> =
+                <div id="res">?</div>
+            </div>
+            <form action="botoes" class="botoes">
+                <input class="botao" type="button" value="+" onclick="soma()">
+                <input class="botao" type="button" value="-" onclick="subtracao()">
+                <input class="botao" type="button" value="/" onclick="divisao()">
+                <input class="botao" type="button" value="x" onclick="multiplicacao()">
+                <input class="botao" type="button"  value="**" onclick="potenciacao()">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function inverse(){
+            var n1 = document.getElementsByName('n1')[0]
+            var n2 = document.getElementsByName('n2')[0]
+            var n3 = n1.value
+
+            n1.value = `${Number(n2.value)}`
+            n2.value = `${Number(n3)}`
+
+        }
+        function soma(){
+            var n1 = document.getElementsByName('n1')[0]
+            var n2 = document.getElementsByName('n2')[0]
+            var res = document.getElementById('res')
+            res.innerHTML = `  ${Number(n1.value) + Number(n2.value)}`
+        }
+        function multiplicacao(){
+            var n1 = document.getElementsByName('n1')[0]
+            var n2 = document.getElementsByName('n2')[0]
+            var res = document.getElementById('res')
+            res.innerHTML = `${Number(n1.value) * Number(n2.value)} `
+        }
+        function divisao(){
+            var n1 = document.getElementsByName('n1')[0]
+            var n2 = document.getElementsByName('n2')[0]
+            var res = document.getElementById('res')
+            res.innerHTML = `${Number(n1.value) / Number(n2.value)}`
+        }
+        function subtracao(){
+            var n1 = document.getElementsByName('n1')[0]
+            var n2 = document.getElementsByName('n2')[0]
+            var res = document.getElementById('res')
+
+            res.innerHTML = `${Number(n1.value) - Number(n2.value)}`
+        }
+        function potenciacao(){
+            var n1 = document.getElementsByName('n1')[0]
+            var n2 = document.getElementsByName('n2')[0]
+            var res = document.getElementById('res')
+            var format = Number(n1.value ** n2.value)
+            res.innerHTML = `${format.toFixed(2)} `
+
+        }
+    </script>
+</body>
+</html>
